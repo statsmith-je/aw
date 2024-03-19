@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class= "col-md-6 offset-md-3">
+    
+    {% if user.is_authenticated %}
+
+        <div style="padding:40px;margin:40px;border:1px solid #ccc">
+            <h3>Course Information Upload</h3>
+            <br>
+            <p>Upload an Instructor Guide file for a course to add it to the data</p>
+            <hr>
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class = 'btn btn-success float-end'>Upload</button>
+            </form><br>
+        </div>
+
+    {% endif %}
+{% endblock %}

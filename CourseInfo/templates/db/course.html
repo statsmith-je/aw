@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class= "col-md-6 offset-md-3 text-center">
+    <br><br>
+    {% if user.is_authenticated %}
+        
+        <h2>{{ course }} </h2>
+        <h5>{{ course.cadre }} - {{ course.position}}</h5>
+        <!-- buttons -->
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button id="btnSearch" class="btn navbar-btn btn-warning center-block" Style="width: 100px;" >Edit</button>
+                 <button id="btnClear" class="btn navbar-btn btn-dark center-block" Style="width: 100px;" >Replace</button>
+                 <button id="btnClear" class="btn navbar-btn btn-danger center-block" Style="width: 100px;" >Delete</button>
+             </div>
+        </div>
+    </div>
+    <div>
+        <!-- Basic course information -->
+
+        <!-- module information table-->
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Module ID</th>
+                <th scope="col">Module Title</th>
+                <th scope="col">Length (min)</th>
+                <th scope="col">Slides</th>
+                <th scope="col">Activities</th>
+                <th scope="col"># PTBs</th>
+                <th scope="col"># ELOs</th>
+                <th scope="col"># Comps</th>
+              </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                    {% for module in modules %}
+                        <tr>
+                        <th><a href = "{% url 'modules' module.id %}">{{ module }}</a></th>
+                        <td>{{ module.module_title }}</td>
+                        <td>{{ module.minutes_to_complete}}</td>
+                        <td>{{ module.number_of_slides}}</td>
+                        <td>{{ module.number_of_activities}}</td>
+                        <td>{{ module.ptbs.count}}</td>
+                        <td>{{ module.elos.count}}</td>
+                        <td>{{ module.competencies.count}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+    {% endif %}
+    </div>
+{% endblock %}

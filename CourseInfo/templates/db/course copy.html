@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class= "col-md-6 offset-md-3 text-center">
+    <br><br>
+    {% if user.is_authenticated %}
+        
+
+    <div>
+        <!-- Basic course information -->
+
+        <!-- module information table-->
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Module ID</th>
+                <th scope="col">Module Title</th>
+                <th scope="col"># PTBs</th>
+                <th scope="col"># ELOs</th>
+                <th scope="col"># Comps</th>
+              </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                    {% for module in modules %}
+                        <tr>
+                        <th><a href = "{% url 'modules' module.id %}">{{ module }}</a></th>
+                        <td>{{ module.module_title }}</td>
+                        <td>{{ module.minutes_to_complete}}</td>
+                        <td>{{ module.number_of_slides}}</td>
+                        <td>{{ module.number_of_activities}}</td>
+                        <td>{{ module.ptbs.count}}</td>
+                        <td>{{ module.elos.count}}</td>
+                        <td>{{ module.competencies.count}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+    </div>
+</div>
+    {% endif %}
+    
+{% endblock %}

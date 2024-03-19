@@ -1,0 +1,35 @@
+<h1>Find Course</h1>
+
+
+<form class="d-flex" role="search" method="POST">
+    {% csrf_token %}
+    <input
+       class="form-control me-2"
+       type="search"
+       placeholder="Search"
+       name="search_query"
+       required aria-label="Search"
+    >
+    <button class="btn btn-outline-success" type="submit">Search</button>
+   </form>
+
+
+{% if query %}
+    <div>
+        <div>
+        <!-- loop through search query -->
+        {% for course in courses %}
+            <div>
+                <!-- return search query -->
+                <p>{{ course.code }}, {{ course.cadre }}, {{ course.position }}</p>
+
+                
+                
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <!-- return a message if the user does not enter a search query -->
+    <h1>Please enter a search query</h1>
+{% endif %}

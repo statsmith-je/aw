@@ -1,0 +1,36 @@
+<h1>Find Courses by ELO word</h1>
+
+
+<form class="d-flex" role="search" method="POST">
+    {% csrf_token %}
+    <input
+       class="form-control me-2"
+       type="search"
+       placeholder="Search"
+       name="search_query"
+       required aria-label="Search"
+    >
+    <button class="btn btn-outline-success" type="submit">Search</button>
+   </form>
+
+
+{% if query %}
+    <div>
+        <div>
+        {% for elo, modules in elos.items %}
+        <div>
+            <!-- return search query -->
+            <p>{{ elo }}</p>
+            
+            {% for module_info in modules %}
+                <li>
+                    {{ module_info.course }}, {{module_info.module_number}}, {{module_info.module_title}}, {{ module_info.minutes_to_complete }}, {{ module_info.number_of_slides }}, {{ module.number_of_activities }}
+                </li>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <!-- return a message if the user does not enter a search query -->
+    <h1>Please enter a search query</h1>
+{% endif %}

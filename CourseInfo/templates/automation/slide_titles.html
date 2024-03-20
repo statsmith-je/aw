@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class= "col-md-6 offset-md-3">
+
+    {% if user.is_authenticated %}
+    
+    <h1>Extract Slide Information</h1>
+    <form method = "POST" action = "" enctype = "multipart/form-data">
+      {% csrf_token %}
+
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-secondary">Extract</button>
+    {% endif %}
+
+    
+
+</div>
+
+{% endblock %}

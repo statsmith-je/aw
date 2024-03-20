@@ -8,6 +8,10 @@ from .read_doc import CourseInfo
 from .forms import UploadFileForm, SignUpForm, CreateCourse
 from .models import PTB, TLO, ELO, Course, Module
 from django.db.models import Count, Q
+from io import BytesIO
+import pandas as pd
+
+from .slide_info import Pres
 
 
 def search(request):
@@ -239,3 +243,31 @@ def edit_course(request, pk):
     else:
         messages.success(request, ("You must be logged in"))
     return redirect('home')
+
+
+#Slide info
+def slide_titles(request):
+    if request.method == "POST":
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            file = request.FILES["file"]
+            module = form.cleaned_data['modules']
+            file_name = form.cleaned_data['file_name']
+            ppt_info = Pres(module)
+            slides = ppt_info.open_slide_deck(file)
+            ppt_info.extract_info()
+            slide_info = ppt_info.info
+            with BytesIO() as b:
+                # Use the StringIO object as the filehandle.
+                writer = pd.ExcelWriter(b, engine='xlsxwriter')
+                slide_info.to_excel(writer, sheet_name='Sheet1', index = False)
+                writer.close()
+                filename = file_name
+                content_type = 'application/vnd.ms-excel'
+                response = HttpResponse(b.getvalue(), content_type=content_type)
+                response['Content-Disposition'] = 'attachment; filename="' + filename + '.xlsx"'
+                messages.success(request, f"Titles successfully extracted from all {slides} of your file!")
+                return response
+    else:
+        form = UploadFileForm()
+    return render(request, "slides.html", {"form": form})

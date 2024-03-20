@@ -202,7 +202,7 @@ def home(request):
             messages.success(request, "There was an error logging in. Please try again.")
             return redirect('home')
     else:
-        return render(request, 'home.html', {})
+        return render(request, 'landing_page/home.html', {})
 
 #Logout
 def logout_user(request):

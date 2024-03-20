@@ -13,5 +13,6 @@ urlpatterns = [
     path('register/', views.register_user, name = 'register'),
     path('db/courseadd', views.add_course, name = 'add_course'),
     path('db', views.db_home, name = 'db_home'),
-    path('automation/slidetitles', views.slide_titles, name = 'slidetitles')
+    path('automation/slidetitles', views.slide_titles, name = 'slidetitles'),
+    path('automation/home', views.auto_home, name = 'autohome')
 ]

@@ -250,12 +250,12 @@ def slide_titles(request):
     if request.method == "POST":
         form = UploadMultipleFilesForm(request.POST, request.FILES)
         if form.is_valid():
-            file = request.FILES["file"]
+            files = request.FILES["file"]
             module = form.cleaned_data['modules']
+            modules = [m.strip() for m in module.split(",")]
             file_name = form.cleaned_data['file_name']
-            ppt_info = Pres(module)
-            slides = ppt_info.open_slide_deck(file)
-            ppt_info.extract_info()
+
+            ppt_info = Pres(modules, files)
             slide_info = ppt_info.info
             with BytesIO() as b:
                 # Use the StringIO object as the filehandle.
@@ -266,7 +266,7 @@ def slide_titles(request):
                 content_type = 'application/vnd.ms-excel'
                 response = HttpResponse(b.getvalue(), content_type=content_type)
                 response['Content-Disposition'] = 'attachment; filename="' + filename + '.xlsx"'
-                messages.success(request, f"Titles successfully extracted from all {slides} of your file!")
+                messages.success(request, f"Titles successfully extracted!")
                 return response
     else:
         form = UploadMultipleFilesForm()

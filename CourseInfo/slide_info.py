@@ -16,7 +16,8 @@ class Pres():
     
     def extract_info(self): 
         data = pd.DataFrame(columns = ["Module", "Slide", "Title", "Notes"])
-        for num, file in enumerate(self._files):   
+        for num, file in enumerate(self._files):
+            print(file)   
             prs = Presentation(file)
             for slide_num, slide in enumerate(prs.slides):
                 slide_num +=1

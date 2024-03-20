@@ -269,5 +269,5 @@ def slide_titles(request):
                 messages.success(request, f"Titles successfully extracted from all {slides} of your file!")
                 return response
     else:
-        form = UploadFileForm()
-    return render(request, "slides.html", {"form": form})
+        form = UploadMultipleFilesForm()
+    return render(request, "slide_titles.html", {"form": form})

@@ -15,7 +15,7 @@ class Pres():
         return self._modules
     
     def extract_info(self): 
-        data = pd.DataFrame(columns = ["Module", "Slide", "Title", "Notes"])
+        data = pd.DataFrame(columns = ["Module", "Slide", "Title"])
         for num, file in enumerate(self._files):
             print(file)   
             prs = Presentation(file)

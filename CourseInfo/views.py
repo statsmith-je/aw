@@ -250,7 +250,7 @@ def slide_titles(request):
     if request.method == "POST":
         form = UploadMultipleFilesForm(request.POST, request.FILES)
         if form.is_valid():
-            files = request.FILES["file"]
+            files = form.cleaned_data["file"]
             module = form.cleaned_data['modules']
             modules = [m.strip() for m in module.split(",")]
             file_name = form.cleaned_data['file_name']

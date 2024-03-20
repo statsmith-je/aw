@@ -1,1 +1,1 @@
-web: gunicorn analyticworks.wsgi 
+web: gunicorn application.app

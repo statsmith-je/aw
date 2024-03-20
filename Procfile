@@ -1,1 +1,1 @@
-web: gunicorn DataBase:app
+web: gunicorn DataBase:wsgi

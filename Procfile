@@ -1,1 +1,1 @@
-web: gunicorn DataBase:wsgi
+web: gunicorn DataBase.wsgi:application

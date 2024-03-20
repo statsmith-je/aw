@@ -83,8 +83,10 @@ class UploadFileForm(forms.Form):
     number_of_slides = forms.IntegerField(label = '', widget = forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Number of slides"}))
     number_of_activities = forms.IntegerField(label = '', widget = forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Number of activities"}))
 
-class CreateIG(forms.Form):
-    slides = MultipleFileField()
+class UploadMultipleFilesForm(forms.Form):
+    file_name = forms.CharField(label="", max_length = 100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '[NAME]'}))
+    modules = forms.CharField(label="", max_length=50, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'E.g., 1,2,3,5'}))
+    file = MultipleFileField()
     
 class MainHeadingOptions(forms.Form):
     pass

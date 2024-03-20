@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from .read_doc import CourseInfo
-from .forms import UploadFileForm, SignUpForm, CreateCourse
+from .forms import UploadFileForm, SignUpForm, CreateCourse, UploadMultipleFilesForm
 from .models import PTB, TLO, ELO, Course, Module
 from django.db.models import Count, Q
 from io import BytesIO
@@ -248,7 +248,7 @@ def edit_course(request, pk):
 #Slide info
 def slide_titles(request):
     if request.method == "POST":
-        form = UploadFileForm(request.POST, request.FILES)
+        form = UploadMultipleFilesForm(request.POST, request.FILES)
         if form.is_valid():
             file = request.FILES["file"]
             module = form.cleaned_data['modules']

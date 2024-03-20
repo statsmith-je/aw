@@ -5,7 +5,7 @@ class Pres():
     def __init__(self, modules, files):
         self._files = files
         self._modules = modules
-
+        self.extract_info()
     @property
     def file_list(self):
         return self._files
@@ -25,6 +25,6 @@ class Pres():
                 except:
                     title = pd.NA
                 data.loc[len(data)] = [self._modules[num], slide_num, title]
-            self.info = data
+        self.info = data
 
     

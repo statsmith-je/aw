@@ -247,6 +247,19 @@ def edit_course(request, pk):
 
 #Slide info
 def slide_titles(request):
+    
+    def download_file(slide_info):
+        with BytesIO() as b:
+            # Use the StringIO object as the filehandle.
+            writer = pd.ExcelWriter(b, engine='xlsxwriter')
+            slide_info.to_excel(writer, sheet_name='Sheet1', index = False)
+            writer.close()
+            filename = file_name
+            content_type = 'application/vnd.ms-excel'
+            response = HttpResponse(b.getvalue(), content_type=content_type)
+            response['Content-Disposition'] = 'attachment; filename="' + filename + '.xlsx"'
+            return response
+        
     if request.method == "POST":
         form = UploadMultipleFilesForm(request.POST, request.FILES)
         if form.is_valid():
@@ -254,20 +267,12 @@ def slide_titles(request):
             module = form.cleaned_data['modules']
             modules = [m.strip() for m in module.split(",")]
             file_name = form.cleaned_data['file_name']
-
             ppt_info = Pres(modules, files)
-            slide_info = ppt_info.info
-            with BytesIO() as b:
-                # Use the StringIO object as the filehandle.
-                writer = pd.ExcelWriter(b, engine='xlsxwriter')
-                slide_info.to_excel(writer, sheet_name='Sheet1', index = False)
-                writer.close()
-                filename = file_name
-                content_type = 'application/vnd.ms-excel'
-                response = HttpResponse(b.getvalue(), content_type=content_type)
-                response['Content-Disposition'] = 'attachment; filename="' + filename + '.xlsx"'
-                messages.success(request, f"Titles successfully extracted!")
-                return response
+            download_file(ppt_info.info)
+            return redirect('autohome')
     else:
         form = UploadMultipleFilesForm()
     return render(request, "automation/slide_titles.html", {"form": form})
+
+def automation_home(request):
+    return render(request, "automation/home.html", {})

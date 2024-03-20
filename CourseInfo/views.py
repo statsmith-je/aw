@@ -270,4 +270,4 @@ def slide_titles(request):
                 return response
     else:
         form = UploadMultipleFilesForm()
-    return render(request, "slide_titles.html", {"form": form})
+    return render(request, "automation/slide_titles.html", {"form": form})

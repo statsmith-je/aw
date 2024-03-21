@@ -190,7 +190,7 @@ def add_course(request):
         form = CreateCourse()
         return render(request, "db/add_course.html", {"form": form})
     
-def home(request):
+def backend(request):
     #check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']

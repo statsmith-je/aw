@@ -211,7 +211,7 @@ def backend(request):
 def logout_user(request):
     logout(request)
     messages.success(request, "You have been logged out.")
-    return render(request, 'home.html', {})
+    return render(request, 'ceh_pages/home.html', {})
 
 #register
 def register_user(request):

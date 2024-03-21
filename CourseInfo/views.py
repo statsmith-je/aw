@@ -205,7 +205,7 @@ def back_end_home(request):
             messages.success(request, "There was an error logging in. Please try again.")
             return redirect('backend')
     else:
-        return render(request, 'landing_page/home.html', {})
+        return render(request, 'ceh_pages/home.html', {})
 
 #Logout
 def logout_user(request):

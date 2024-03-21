@@ -15,7 +15,7 @@ from .slide_info import Pres
 
 def insights(request):
     
-    return render(request, 'landing_page/insights.html', {})
+    return render(request, 'landing_page/insights/insights.html', {})
 
 def home(request):
     

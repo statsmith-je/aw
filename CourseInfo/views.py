@@ -210,8 +210,8 @@ def back_end_home(request):
 #Logout
 def logout_user(request):
     logout(request)
-    messages.success(request, "You have been logged out.")
-    return render(request, 'landing_page/home.html', {})
+    # messages.success(request, "You have been logged out.")
+    return render(request, 'ceh_pages/home.html', {})
 
 #register
 def register_user(request):
@@ -221,7 +221,7 @@ def register_user(request):
             form.save()
             #authenticate and log in
             username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
+            password = form.cleaned_data['password']
             user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.success(request, "You have successfully registered")

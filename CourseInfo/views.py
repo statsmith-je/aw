@@ -200,9 +200,9 @@ def back_end_home(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('autohome')
+            return redirect('/backend')
         else:
-            return redirect('autohome')
+            return redirect('/backend')
     else:
         return render(request, 'ceh_pages/home.html', {})
 #Logout

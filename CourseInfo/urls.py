@@ -14,6 +14,6 @@ urlpatterns = [
     path('db/courseadd', views.add_course, name = 'add_course'),
     path('db/courselist', views.db_course_list, name = 'dbcourselist'),
     path('automation/slidetitles', views.slide_titles, name = 'slidetitles'),
-    path('automation/', views.automation_home, name = 'autohome'),
-    path('ceh', views.back_end_home, name = 'backend')
+    path('automation/', views.automation_home, name = 'autohome')
+    # path('ceh', views.back_end_home, name = 'backend')
 ]

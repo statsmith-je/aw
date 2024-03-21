@@ -13,9 +13,9 @@ import pandas as pd
 
 from .slide_info import Pres
 
-def home(request):
+# def home(request):
     
-    return render(request, 'landing_page/home.html', {})
+#     return render(request, 'landing_page/home.html', {})
 
 def search(request):
 
@@ -190,8 +190,7 @@ def add_course(request):
         form = CreateCourse()
         return render(request, "db/add_course.html", {"form": form})
     
-
-def back_end_home(request):
+def home(request):
     #check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']
@@ -200,16 +199,19 @@ def back_end_home(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/backend')
+            messages.success(request, "You have been logged in")
+            return redirect('home')
         else:
-            return redirect('/backend')
+            messages.success(request, "There was an error logging in. Please try again.")
+            return redirect('home')
     else:
         return render(request, 'ceh_pages/home.html', {})
+
 #Logout
 def logout_user(request):
     logout(request)
-    # messages.success(request, "You have been logged out.")
-    return render(request, 'ceh_pages/home.html', {})
+    messages.success(request, "You have been logged out.")
+    return render(request, 'home.html', {})
 
 #register
 def register_user(request):
@@ -219,11 +221,11 @@ def register_user(request):
             form.save()
             #authenticate and log in
             username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            password = form.cleaned_data['password1']
             user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.success(request, "You have successfully registered")
-            return redirect('backend')
+            return redirect('home')
     else:
         form = SignUpForm()
         return render(request, 'register.html', {'form': form})

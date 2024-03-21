@@ -13,9 +13,9 @@ import pandas as pd
 
 from .slide_info import Pres
 
-# def home(request):
+def home(request):
     
-#     return render(request, 'landing_page/home.html', {})
+    return render(request, 'landing_page/home.html', {})
 
 def search(request):
 
@@ -200,10 +200,10 @@ def backend(request):
         if user is not None:
             login(request, user)
             messages.success(request, "You have been logged in")
-            return redirect('home')
+            return redirect('backend')
         else:
             messages.success(request, "There was an error logging in. Please try again.")
-            return redirect('home')
+            return redirect('backend')
     else:
         return render(request, 'ceh_pages/home.html', {})
 

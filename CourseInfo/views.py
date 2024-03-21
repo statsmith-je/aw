@@ -13,6 +13,9 @@ import pandas as pd
 
 from .slide_info import Pres
 
+def home(request):
+    
+    return render(request, 'landing_page/home.html', {})
 
 def search(request):
 
@@ -78,11 +81,11 @@ def course(request, pk):
     
     return render(request, 'db/course.html',{'course': course_info, 'modules': module_info} )
 
-def db_home(request):
+def db_course_list(request):
     
     course_info = Course.objects.all().order_by('cadre_acronym')
     
-    return render(request, 'db/home.html',{'courses': course_info})
+    return render(request, 'db/course_list.html',{'courses': course_info})
 
 def module(request, pk):
     
@@ -182,12 +185,12 @@ def add_course(request):
         # context['form']= form
         
             
-            return redirect('db_home')
+            return redirect('dbcourselist')
     else:
         form = CreateCourse()
         return render(request, "db/add_course.html", {"form": form})
     
-def home(request):
+def back_end_home(request):
     #check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']
@@ -197,10 +200,10 @@ def home(request):
         if user is not None:
             login(request, user)
             messages.success(request, "You have been logged in")
-            return redirect('home')
+            return redirect('backend')
         else:
             messages.success(request, "There was an error logging in. Please try again.")
-            return redirect('home')
+            return redirect('backend')
     else:
         return render(request, 'landing_page/home.html', {})
 
@@ -208,7 +211,7 @@ def home(request):
 def logout_user(request):
     logout(request)
     messages.success(request, "You have been logged out.")
-    return render(request, 'home.html', {})
+    return render(request, 'landing_page/home.html', {})
 
 #register
 def register_user(request):
@@ -237,7 +240,7 @@ def edit_course(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, ("Course updated"))
-            return redirect('db_home')
+            return redirect('dbcourselist')
 
         return render(request, 'db/edit_course.html', {'form': form, 'course': course_info})
     else:

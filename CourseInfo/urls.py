@@ -12,7 +12,8 @@ urlpatterns = [
     path('logout/', views.logout_user, name = 'logout'),
     path('register/', views.register_user, name = 'register'),
     path('db/courseadd', views.add_course, name = 'add_course'),
-    path('db', views.db_home, name = 'db_home'),
+    path('db/courselist', views.db_course_list, name = 'dbcourselist'),
     path('automation/slidetitles', views.slide_titles, name = 'slidetitles'),
-    path('automation/', views.automation_home, name = 'autohome')
+    path('automation/', views.automation_home, name = 'autohome'),
+    path('ceh', views.back_end_home, name = 'backend')
 ]

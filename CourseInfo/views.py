@@ -191,7 +191,20 @@ def add_course(request):
         return render(request, "db/add_course.html", {"form": form})
     
 
-
+def back_end_home(request):
+    #check to see if logging in
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        #authenticate
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('backend')
+        else:
+            return redirect('backend')
+    else:
+        return render(request, 'ceh_pages/home.html', {})
 #Logout
 def logout_user(request):
     logout(request)

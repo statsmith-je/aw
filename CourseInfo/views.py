@@ -190,22 +190,7 @@ def add_course(request):
         form = CreateCourse()
         return render(request, "db/add_course.html", {"form": form})
     
-def back_end_home(request):
-    #check to see if logging in
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        #authenticate
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            messages.success(request, "You have been logged in")
-            return render(request, 'ceh_pages/home.html')
-        else:
-            messages.success(request, "There was an error logging in. Please try again.")
-            return render(request, 'ceh_pages/home.html')
-    else:
-        return render(request, 'ceh_pages/home.html', {})
+
 
 #Logout
 def logout_user(request):
@@ -225,7 +210,7 @@ def register_user(request):
             user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.success(request, "You have successfully registered")
-            return redirect('home')
+            return redirect('backend')
     else:
         form = SignUpForm()
         return render(request, 'register.html', {'form': form})

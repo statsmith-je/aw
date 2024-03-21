@@ -13,6 +13,10 @@ import pandas as pd
 
 from .slide_info import Pres
 
+def insights(request):
+    
+    return render(request, 'landing_page/insights.html', {})
+
 def home(request):
     
     return render(request, 'landing_page/home.html', {})

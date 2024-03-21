@@ -200,10 +200,10 @@ def back_end_home(request):
         if user is not None:
             login(request, user)
             messages.success(request, "You have been logged in")
-            return redirect('backend')
+            return render(request, 'ceh_pages/home.html')
         else:
             messages.success(request, "There was an error logging in. Please try again.")
-            return redirect('backend')
+            return render(request, 'ceh_pages/home.html')
     else:
         return render(request, 'ceh_pages/home.html', {})
 

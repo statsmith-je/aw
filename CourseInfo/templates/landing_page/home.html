@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <!-- Header-->
-<header class="bg-dark py-2">
+<header class="bg-dark py-5">
     <div class="container px-5">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
@@ -19,30 +19,12 @@
     </div>
 </header>
 <section class="bg-gray-600">
-    <br><br>
-    <div class="container px-5" id="services">
+    
+    <div class="container px-5 py-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-sm-8 col-md-6">
-                <div class="px-5"><img class="img-fluid rounded-pill" src='{% static "home/assets/datasplash.jpg" %}' alt="..." /></div>
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-pill" src='{% static "home/assets/consulting.jpg" %}' alt="..." /></div>
             </div>
-            <div class="col-12 col-lg-5">
-                <h2 class="display-4 lh-1 mb-4">Psychometrics</h2>
-                <p class="lead fw-normal text-muted mb-5 mb-lg-0">Capturing quality data is essential. Psychometrics is foundational data quality.</p>
-                <a class="text-decoration" href="{% url 'psychometrics' %}">
-                    <br>
-                    <h6><i>Learn about psychometrics can improve you data</i></h6>
-                </a>
-            
-            </div>
-            
-        </div>
-    </div>
-    <br><br>
-</section>
-<section class="bg-light">
-    <br><br>
-    <div class="container px-5">
-        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
                 <h2 class="display-4 lh-1 mb-4">Consulting</h2>
                 <p class="lead fw-normal text-muted mb-5 mb-lg-0">The language of technology and analysis is available to everyone. Knowing who to trust and how to integrate these skills are essential.</p>
@@ -51,16 +33,32 @@
                     <h6><i>Learn how to find the right technology and staff</i></h6>
                 </a>
             </div>
+            
+        </div>
+    </div>
+    
+</section>
+<section class="bg-light">
+    <div class="container px-5 py-5" id = 'services'>
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">Learning Analytics & Design</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">Creating trainings embedded with analytics to optimize outcomes </p>
+                <a class="text-decoration" href="{% url 'psychometrics' %}">
+                    <br>
+                    <h6><i>Learn about how to improve your training outcomes</i></h6>
+                </a>
+            </div>
             <div class="col-sm-8 col-md-6">
-                <div class="px-5 px-sm-0"><img class="img-fluid rounded-pill" src='{% static "home/assets/consulting.jpg" %}' alt="..." /></div>
+                <div class="px-5"><img class="img-fluid rounded-pill" src='{% static "home/assets/learning.jpg" %}' alt="..." /></div>
             </div>
         </div>
     </div>
-    <br><br>
 </section>
 <section class="bg-gray-600">
-    <br><br>
-    <div class="container px-5">
+    
+    <div class="container px-5 py-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-sm-8 col-md-6">
                 <div class="px-5"><img class="img-fluid rounded-pill" src='{% static "home/assets/analysis.jpg" %}' alt="..." /></div>
@@ -77,11 +75,11 @@
             
         </div>
     </div>
-    <br><br>
+    
 </section>
 <section class="bg-light">
-    <br><br>
-    <div class="container px-5">
+    
+    <div class="container px-5 py-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-12 col-lg-5">
                 <h2 class="display-4 lh-1 mb-4">Applied AI</h2>
@@ -97,11 +95,11 @@
             </div>
         </div>
     </div>
-    <br><br>
+    
 </section>
 <section class="bg-grey-600">
-    <br><br>
-    <div class="container px-5">
+    
+    <div class="container px-5 py-5">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-sm-8 col-md-6">
                 <div class="px-5"><img class="img-fluid rounded-pill" src='{% static "home/assets/programming.jpg" %}' alt="..." /></div>
@@ -117,6 +115,6 @@
             
         </div>
     </div>
-    <br><br>
+    
 </section>
 {% endblock %}

@@ -10,8 +10,8 @@
                     <h1 class="display-5 fw-bolder text-white mb-2">Unlocking Insights Empowering Decisions</h1>
                     <p class="lead text-white-50 mb-4">Optimize performance through a data centered approach</p>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Contact Us</a>
-                        <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'contact' %}">Contact Us</a>
+                        <a class="btn btn-outline-light btn-lg px-4" href="#services">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
 </header>
 <section class="bg-gray-600">
     <br><br>
-    <div class="container px-5">
+    <div class="container px-5" id="services">
         <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
             <div class="col-sm-8 col-md-6">
                 <div class="px-5"><img class="img-fluid rounded-pill" src='{% static "home/assets/datasplash.jpg" %}' alt="..." /></div>

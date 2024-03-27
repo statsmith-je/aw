@@ -13,6 +13,28 @@ import pandas as pd
 
 from .slide_info import Pres
 
+def psychometrics(request):
+    
+    return render(request, 'landing_page/services/psychometrics.html', {})
+
+
+def ai(request):
+    
+    return render(request, 'landing_page/services/ai.html', {})
+
+
+def data_analytics(request):
+    
+    return render(request, 'landing_page/services/data.html', {})
+
+
+def secure_tech(request):
+    
+    return render(request, 'landing_page/services/it.html', {})
+
+def consulting(request):
+    
+    return render(request, 'landing_page/services/consulting.html', {})
 
 def about(request):
     

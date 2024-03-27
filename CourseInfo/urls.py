@@ -18,5 +18,11 @@ urlpatterns = [
     path('ceh', views.backend, name = 'backend'),
     path('insights', views.insights, name = 'insights'),
     path('blog', views.blog, name = 'blog'),
+    path('contact', views.contact, name = 'contact'),
+    path('services/psychometrics', views.psychometrics, name = 'psychometrics'),
+    path('services/ai', views.ai, name = 'ai'),
+    path('services/data_analytics', views.data_analytics, name = 'data_analytics'),
+    path('services/secure_tech', views.secure_tech, name = 'secure_tech'),
+    path('services/consulting', views.consulting, name = 'consulting'),
 
 ]

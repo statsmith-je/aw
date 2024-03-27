@@ -1,16 +1,16 @@
 {% extends 'landing_page/base.html' %}
-
+{% load static %}
 {% block content %}
 <!-- Header-->
-<header class="bg-dark py-5">
+<header class="bg-dark py-2">
     <div class="container px-5">
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <div class="text-center my-5">
                     <h1 class="display-5 fw-bolder text-white mb-2">Unlocking Insights Empowering Decisions</h1>
-                    <p class="lead text-white-50 mb-4">Create efficient improvements that optimize performance through a data centered approach</p>
+                    <p class="lead text-white-50 mb-4">Optimize performance through a data centered approach</p>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Contact us</a>
+                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Contact Us</a>
                         <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
                     </div>
                 </div>
@@ -18,40 +18,105 @@
         </div>
     </div>
 </header>
-<!-- Features section-->
-<section class="py-5 border-bottom" id="features">
-    <div class="container px-5 my-5">
-        <div class="row gx-5">
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                <h2 class="h4 fw-bolder">Data Management</h2>
-                <p>Data is everywhere. Capturing data in ways that bring value is essential to optimization and reaching full potential.</p>
-                <a class="text-decoration-none" href="#!">
-                    Learn how to leverage effective data management
-                    <i class="bi bi-arrow-right"></i>
+<section class="bg-gray-600">
+    <br><br>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-sm-8 col-md-6">
+                <div class="px-5"><img class="img-fluid rounded-pill" src='{% static "home/assets/datasplash.jpg" %}' alt="..." /></div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">Psychometrics</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">Capturing quality data is essential. Psychometrics is foundational data quality.</p>
+                <a class="text-decoration" href="{% url 'psychometrics' %}">
+                    <br>
+                    <h6><i>Learn about psychometrics can improve you data</i></h6>
+                </a>
+            
+            </div>
+            
+        </div>
+    </div>
+    <br><br>
+</section>
+<section class="bg-light">
+    <br><br>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">Consulting</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">The language of technology and analysis is available to everyone. Knowing who to trust and how to integrate these skills are essential.</p>
+                <a class="text-decoration" href="{% url 'consulting' %}">
+                    <br>
+                    <h6><i>Learn how to find the right technology and staff</i></h6>
                 </a>
             </div>
-            <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                <h2 class="h4 fw-bolder">Consulting</h2>
-                <p>The language of technology and analysis is available to everyone. Knowing who to trust and how to integrate these skills are essential.</p>
-                <a class="text-decoration-none" href="#!">
-                    Lean about how to train and find the right people
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-            </div>
-            <div class="col-lg-4">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                <h2 class="h4 fw-bolder">Secure Technology</h2>
-                <p>The challenge every company faces is applying avaible technology for your specific purpose safely and securely.</p>
-                <a class="text-decoration-none" href="#!">
-                    Learn how to build secure technology for you
-                    <i class="bi bi-arrow-right"></i>
-                </a>
+            <div class="col-sm-8 col-md-6">
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-pill" src='{% static "home/assets/consulting.jpg" %}' alt="..." /></div>
             </div>
         </div>
     </div>
+    <br><br>
 </section>
-
-
+<section class="bg-gray-600">
+    <br><br>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-sm-8 col-md-6">
+                <div class="px-5"><img class="img-fluid rounded-pill" src='{% static "home/assets/analysis.jpg" %}' alt="..." /></div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">Data Analysis</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">The challenge every company faces is applying avaible technology for your specific purpose safely and securely.</p>
+                <a class="text-decoration" href="{% url 'data_analytics' %}">
+                    <br>
+                    <h6><i>Learn about how to leverage and manage data</i></h6>
+                </a>
+            
+            </div>
+            
+        </div>
+    </div>
+    <br><br>
+</section>
+<section class="bg-light">
+    <br><br>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">Applied AI</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">AI is everywhere. Applying AI tools to your specific needs to unlock value is crucial to avoid wasting time and resources.</p>
+                <a class="text-decoration" href="{% url 'ai' %}">
+                    <br>
+                    <h6><i>Learn about gen AI that works for you</i></h6>
+                </a>
+            </div>
+            
+            <div class="col-sm-8 col-md-6">
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-pill" src='{% static "home/assets/ai.jpg" %}' alt="..." /></div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</section>
+<section class="bg-grey-600">
+    <br><br>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div class="col-sm-8 col-md-6">
+                <div class="px-5"><img class="img-fluid rounded-pill" src='{% static "home/assets/programming.jpg" %}' alt="..." /></div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <h2 class="display-4 lh-1 mb-4">Secure Technology</h2>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">The challenge every company faces is applying available technology for your specific purpose safely and securely.</p>
+            <a class="text-decoration" href="{% url 'secure_tech' %}">
+                <br>
+                <h6><i>Learn how to build secure technology for you</i></h6>
+            </a>
+            </div>
+            
+        </div>
+    </div>
+    <br><br>
+</section>
 {% endblock %}

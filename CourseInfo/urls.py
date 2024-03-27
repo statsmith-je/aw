@@ -16,5 +16,7 @@ urlpatterns = [
     path('automation/slidetitles', views.slide_titles, name = 'slidetitles'),
     path('automation/', views.automation_home, name = 'autohome'),
     path('ceh', views.backend, name = 'backend'),
-    path('insights', views.insights, name = 'insights')
+    path('insights', views.insights, name = 'insights'),
+    path('blog', views.blog, name = 'blog'),
+
 ]

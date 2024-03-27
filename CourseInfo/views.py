@@ -13,6 +13,19 @@ import pandas as pd
 
 from .slide_info import Pres
 
+
+def about(request):
+    
+    return render(request, 'landing_page/about.html', {})
+
+def contact(request):
+    
+    return render(request, 'landing_page/contact.html', {})
+
+def blog(request):
+    
+    return render(request, 'landing_page/insights/blog.html', {})
+
 def insights(request):
     
     return render(request, 'landing_page/insights/insights.html', {})
@@ -282,3 +295,4 @@ def slide_titles(request):
 
 def automation_home(request):
     return render(request, "automation/home.html", {})
+

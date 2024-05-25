@@ -1,28 +1,37 @@
+
 {% extends 'landing_page/base.html' %}
 
+{% load static %}
 
 {% block content %}
-<header class="bg-dark py-5">
-    <div class="container px-5">
-        <div class="row gx-5 justify-content-center">
-            <div class="col-lg-6">
-                <div class="text-center my-5">
-                    <h1 class="display-5 fw-bolder text-white mb-2">Empower your business with expert technical consulting</h1>
-                    <p class="lead text-white-50 mb-4">Innovative solutions, strategic guidance, and transformative results</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<section class="py-5 border-bottom">     
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            We empower organizations to elevate their understanding of technology, data, and analysis. Our expert consultants work closely with your team to demystify complex technological concepts, ensuring that everyone, from executives to entry-level employees, grasps the critical insights necessary for informed decision-making. We provide comprehensive training and workshops tailored to your specific needs, helping you harness the full potential of your data and transform it into actionable strategies.<br><br>
+<!-- details page -->
+<section class="pt-5">
+  {% include 'landing_page/services/navbar.html' %}
 
-            Identifying and nurturing the right talent is crucial for any organization’s success. We assist you in recognizing employees who possess the expertise you need to drive your projects forward. Our meticulous assessment processes ensure that you not only retain top talent but also place them in roles where their skills can shine. By aligning your workforce's capabilities with your strategic goals, we help you build a robust, knowledgeable team ready to tackle any challenge.<br><br>
+    <!-- body -->
+      <div class="col-lg-8">
+        <div class="px-lg-5 px-4">
+          <h2 class="mb-4 font-weight-medium">Consulting</h2> <!-- main content -->
+          <div class="content">
+            <p><img src='{% static "home/images/team_collaboration.svg" %}'width="500px" alt="image"></p>
+            <p>We empower organizations to elevate their understanding of technology, data, and analysis. Our expert consultants work closely with your team to demystify complex technological concepts, ensuring that everyone, from executives to entry-level employees, grasps the critical insights necessary for informed decision-making. We provide comprehensive training and workshops tailored to your specific needs, helping you harness the full potential of your data and transform it into actionable strategies.<br><br>
+              
             
-            Implementing cutting-edge tech solutions is at the heart of what we do. From web development to app creation, our technical consulting services cover the full spectrum of digital transformation. We design and develop customized solutions that integrate seamlessly into your existing infrastructure, enhancing user experience and operational efficiency. Whether it's a sophisticated web application or a mobile app tailored to your business needs, we ensure that every solution is scalable, secure, and aligned with your long-term vision.
+              Identifying and nurturing the right talent is crucial for any organization’s success. We assist you in recognizing employees who possess the expertise you need to drive your projects forward. Our meticulous assessment processes ensure that you not only retain top talent but also place them in roles where their skills can shine. By aligning your workforce's capabilities with your strategic goals, we help you build a robust, knowledgeable team ready to tackle any challenge.<br><br>
+              
+              Implementing cutting-edge tech solutions is at the heart of what we do. From web development to app creation, our technical consulting services cover the full spectrum of digital transformation. We design and develop customized solutions that integrate seamlessly into your existing infrastructure, enhancing user experience and operational efficiency. Whether it's a sophisticated web application or a mobile app tailored to your business needs, we ensure that every solution is scalable, secure, and aligned with your long-term vision.</p>
+          </div>
+          <!-- navigation -->
+          <!-- <nav class="pagination">
+            <a class="nav nav-prev" href="https://examplesite.com/"><i class="ti-arrow-left mr-2"></i>
+              <span class="d-none d-md-block">Hugo documentation theme</span></a>
+            <a class="nav nav-next" href="https://examplesite.com/basic-startup/requirments/"> <span
+                class="d-none d-md-block">Requirments</span><i class="ti-arrow-right ml-2"></i></a>
+          </nav> -->
         </div>
+      </div>
     </div>
+  </div>
 </section>
+<!-- /details page -->
 {% endblock %}

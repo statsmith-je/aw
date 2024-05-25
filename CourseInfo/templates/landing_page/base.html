@@ -1,23 +1,35 @@
 {% load static %}
 
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>AW</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href='{% static "home/assets/favicon.ico" %}' />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href='{% static "home/css/styles.css" %}' rel="stylesheet" />
-    </head>
-    <body>
-        
+
+
+<html lang="eng">
+
+<head>
+  <meta charset="utf-8">
+  <title>AW</title>
+  
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- theme meta -->
+  <meta name="theme-name" content="godocs" />
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- plugins -->
+  <link rel="stylesheet" href='{% static "home/plugins/bootstrap/bootstrap.min.css" %}'>
+  <!-- <link rel="stylesheet" href='{% static "home/plugins/themify-icons/themify-icons.css" %}'> -->
+  <link rel="stylesheet" href='{% static "home/plugins/font-awesome/css/font-awesome.min.css" %}'>
+  <!-- Main Stylesheet -->
+  <link href='{% static "home/css/style.css" %}'rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href='{% static "home/images/favicon.ico" %}' type="image/x-icon">
+  <link rel="icon" href='{% static "home/images/favicon.ico" %}' type="image/x-icon">
+
+</head>
+
+<body>
         <!-- Responsive navbar-->
         {% include 'landing_page/navbar.html' %}
 
@@ -26,3 +38,17 @@
 
         <!-- Footer-->
 {% include 'landing_page/footer.html' %}
+
+<!-- plugins -->
+<script src='{% static "home/plugins/jQuery/jquery.min.js" %}'></script>
+<script src='{% static "home/plugins/bootstrap/bootstrap.min.js" %}'></script>
+<script src='{% static "home/plugins/masonry/masonry.min.js" %}'></script>
+<script src='{% static "home/plugins/clipboard/clipboard.min.js" %}'></script>
+<script src='{% static "home/plugins/match-height/jquery.matchHeight-min.js" %}'></script>
+
+<!-- Main Script -->
+<script src='{% static "home/js/script.js" %}'></script>
+
+
+</body>
+</html>

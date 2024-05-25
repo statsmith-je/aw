@@ -1,0 +1,97 @@
+
+{% extends 'landing_page/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- details page -->
+<section class="pt-5">
+  <div class="container shadow section-sm rounded">
+    <div class="row">
+      <!-- sidebar -->
+      <div class="col-lg-3">
+        <ul class="sidenav">
+          <li title="Basic Startup" class="sidelist parent active">
+            <a href='{% url "consulting" %}'>Consulting</a>
+            <ul>
+              <li class="sidelist">
+                <a href="#">Hiring Support</a>
+              <li class="sidelist">
+                <a href="#">Data Collection</a>
+              <li class="sidelist">
+                <a href="#">Strategy</a>
+              <li class="sidelist">
+                <a href="#">Technical Insights</a>
+            </ul>
+          </li>
+          <li class="sidelist">
+            <a href='{% url "learninganalytics" %}'>Learning & Analytics</a>
+            <ul>
+              <li class="sidelist">
+                <a href="#">Training</a>
+              <li class="sidelist">
+                <a href="#">Workforce Development</a>
+              <li class="sidelist">
+                <a href="#">Measurement (Psychometrics)</a>
+              <li class="sidelist">
+                <a href="#">Analysis</a>
+              <li class="sidelist">
+                <a href="#">Strategy</a>
+            </ul>
+          </li>
+          <li class="sidelist">
+            <a href="list.html">Data Management</a>
+            <ul>
+              <li class="sidelist">
+                <a href="#">Strategy</a>
+              <li class="sidelist">
+                <a href="#">Architecture</a>
+              <li class="sidelist">
+                <a href="#">Management</a>
+              <li class="sidelist">
+                <a href="#">ETL</a>
+            <li class="sidelist">
+                <a href="#">Machine Learning</a>
+            </ul>
+          </li>
+          <li class="sidelist">
+            <a href="list.html">AI & DevOps</a>
+            <ul>
+              <li class="sidelist">
+                <a href="#">Support</a>
+              <li class="sidelist">
+                <a href="#">Custom AI</a>
+              <li class="sidelist">
+                <a href="#">Automation</a>
+              <li class="sidelist">
+                <a href="#">Security</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    <!-- body -->
+      <div class="col-lg-8">
+        <div class="px-lg-5 px-4">
+          <h2 class="mb-4 font-weight-medium">Consulting</h2> <!-- main content -->
+          <div class="content">
+            <p><img src='{% static "home/images/team_collaboration.svg" %}'width="500px" alt="image"></p>
+            <p>Most of the documentation site are looks identical. Thats why we take an initiative to make something
+              different and bring some new concept with minimal design. Meet Godocs , a documentation and knowledge
+              based website template. It can be used for software, API, frameworks, plugins and templates online
+              documentation website building.</p>
+          </div>
+          <!-- navigation -->
+          <!-- <nav class="pagination">
+            <a class="nav nav-prev" href="https://examplesite.com/"><i class="ti-arrow-left mr-2"></i>
+              <span class="d-none d-md-block">Hugo documentation theme</span></a>
+            <a class="nav nav-next" href="https://examplesite.com/basic-startup/requirments/"> <span
+                class="d-none d-md-block">Requirments</span><i class="ti-arrow-right ml-2"></i></a>
+          </nav> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+{% endblock %}

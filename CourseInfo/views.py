@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView
+from django.core.mail import send_mail
 
 def insights(request):
     
@@ -15,8 +16,30 @@ def about(request):
     return render(request, 'landing_page/about.html', {})
 
 def contact(request):
-    
-    return render(request, 'landing_page/contact.html', {})
+    # CONTACT FORM
+    if request.method == 'POST':
+        name = f"{request.POST.get('lname')} {request.POST.get('fname')}"
+        email = request.POST.get('email')
+        reason = request.POST.get('reason')
+        message = request.POST.get('message')
+        form_data = {
+            'name':name,
+            'email':email,
+            'reason':reason,
+            'message':message,
+        }
+        message = f'''
+        From:\n\t\t{form_data['name']}\n
+        Reason:\n\t\t{form_data['reason']}\n
+        Message:\n\t\t{form_data['message']}\n
+        Email:\n\t\t{form_data['email']}\n
+        reason
+        '''
+        send_mail('Message from website!', message, '', ['jesmithstats@gmail.com']) 
+        return render(request, 'landing_page/contact.html', {})
+    else:
+
+        return render(request, 'landing_page/contact.html', {})
 
 def blog(request):
     

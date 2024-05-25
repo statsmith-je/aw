@@ -1,28 +1,21 @@
+
 from django.urls import path
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('', views.home, name = 'home'),
-    # path('db/search', views.search, name = 'search'),
-    # path('db/course/<int:pk>', views.course, name = 'course'),
-    # path('db/edit/<int:pk>', views.edit_course, name = 'edit_course'),
-    # path('db/module/<int:pk>', views.module, name = 'modules'),
-    # path('db/upload', views.upload_file, name = 'upload'),
-    # path('elo', views.elo_search, name = 'elo_search'),
-    # path('logout/', views.logout_user, name = 'logout'),
-    # path('register/', views.register_user, name = 'register'),
-    # path('db/courseadd', views.add_course, name = 'add_course'),
-    # path('db/courselist', views.db_course_list, name = 'dbcourselist'),
-    # path('automation/slidetitles', views.slide_titles, name = 'slidetitles'),
-    # path('automation/', views.automation_home, name = 'autohome'),
-    # path('ceh', views.backend, name = 'backend'),
-    path('insights', views.insights, name = 'insights'),
-    path('blog', views.blog, name = 'blog'),
-    path('contact', views.contact, name = 'contact'),
-    path('services/psychometrics', views.psychometrics, name = 'psychometrics'),
-    path('services/ai', views.ai, name = 'ai'),
-    path('services/data_analytics', views.data_analytics, name = 'data_analytics'),
-    path('services/secure_tech', views.secure_tech, name = 'secure_tech'),
-    path('services/consulting', views.consulting, name = 'consulting'),
-
+    path('', home, name = 'home'),
+    path('insights', insights, name = 'insights'),
+    path('blog', blog, name = 'blog'),
+    path('about', about, name = 'about'),
+    path('contact', contact, name = 'contact'),
+    path('learninganalytics', learninganalytics, name = 'learninganalytics'),
+    path('ai', ai, name = 'ai'),
+    path('data_analytics', data_analytics, name = 'data'),
+    path('secure_tech', secure_tech, name = 'secure_tech'),
+    path('consulting', consulting, name = 'consulting'),
+    path('capability', capability, name = 'capability'),
+    path('article/<int:pk>', InsightsView.as_view(), name = 'blogposts'),
+    path('services/', services, name = 'services'),
 ]
+
+
